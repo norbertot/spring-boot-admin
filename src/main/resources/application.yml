@@ -1,2 +1,26 @@
 server:
   port: 9443
+spring:
+  application:
+    name: spring-boot-admin-test-server
+  boot:
+    admin:
+      discovery:
+        converter:
+          management-context-path: /actuator
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 10
+    #health-check-url-path: /actuator/health
+    metadata-map:
+      startup: ${random.int}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    registry-fetch-interval-seconds: 5
+management:
+  security:
+    enabled: false
+  context-path: /actuator
+
+
